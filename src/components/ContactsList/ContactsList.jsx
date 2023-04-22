@@ -3,8 +3,8 @@ import { fetchDelContacts } from 'redux/option';
 import { Box, Btn, ListBox } from './ContactsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 export const ContactsList = () => {
-  const { items: contacts } = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.contacts.filters);
+  const { items: contacts } = useSelector(state => state.state.contacts);
+  const filter = useSelector(state => state.state.filters);
   const dispatch = useDispatch();
   const lowCaseFilter = filter.toLowerCase();
 
