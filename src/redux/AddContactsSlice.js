@@ -6,8 +6,7 @@ const AddContactsSlice = createSlice({
   name: 'contacts',
   initialState: { items: [], isLoading: false, error: null },
   reducers: {
-    addContact: (state, action) => [action.payload, ...state],
-
+    // addContact: (state, action) => [action.payload, ...state],
     // deleteContact: (state, action) =>
     //   state.filter(contact => contact.id !== action.payload),
   },
@@ -16,7 +15,6 @@ const AddContactsSlice = createSlice({
       state.isLoading = true;
     },
     [fetchContacts.fulfilled](state, action) {
-      console.log(action.payload);
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;

@@ -1,18 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-
-import { getContacts } from '../Fetch/getContacts';
 import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { AddContact } from 'components/AddContact/AddContact';
+import { fetchContacts } from 'redux/option';
 
 export default function Contacts() {
   const dispatch = useDispatch();
   const { items, isLoading, error } = useSelector(state => state.contacts);
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
