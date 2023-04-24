@@ -37,7 +37,7 @@ export function AddContact() {
   const onSubmit = ({ name, number }) => {
     const newContact = {
       name,
-      phone: number,
+      number,
     };
 
     contacts.find(

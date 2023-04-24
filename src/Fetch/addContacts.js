@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export async function addContacts({ name, phone }) {
+export async function addContacts({ name, number }) {
   console.log('+++++');
   console.log(name);
-  console.log(phone);
-  const response = axios.post(`/contacts`, { name, phone });
+  console.log(number);
+  const response = axios.post(`/contacts`, { name, number });
   return response;
 }
