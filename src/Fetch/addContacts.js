@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://64429ddd33997d3ef91539c5.mockapi.io';
-
-export async function AdContacts({ name, phone }) {
+export async function addContacts({ name, phone }) {
   console.log('+++++');
   console.log(name);
   console.log(phone);

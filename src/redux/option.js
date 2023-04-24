@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AdContacts } from 'Fetch/AdContacts';
+import { addContacts } from 'Fetch/addContacts';
 import { delContacts } from 'Fetch/delContacts';
 import { getContacts } from 'Fetch/getContacts';
 
@@ -31,7 +31,7 @@ export const fetchAdContacts = createAsyncThunk(
   'contacts/fetchAdContacts',
   async (data, thunkAPI) => {
     try {
-      const response = await AdContacts(data);
+      const response = await addContacts(data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

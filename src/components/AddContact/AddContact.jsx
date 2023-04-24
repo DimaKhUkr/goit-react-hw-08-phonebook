@@ -11,7 +11,7 @@ export function AddContact() {
     name,
     number,
   };
-  const { items: contacts } = useSelector(state => state.state.contacts);
+  const { items: contacts } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   // console.log(contacts);
