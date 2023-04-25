@@ -5,6 +5,8 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { AddContact } from 'components/AddContact/AddContact';
 import { fetchContacts } from 'redux/option';
+import { Container, TextStyled, WrapperContacts } from './Contacts.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -17,23 +19,27 @@ export default function Contacts() {
   return (
     <>
       <Helmet>
-        <title>Your tasks</title>
+        <title>Your contacts</title>
       </Helmet>
 
-      <div>
-        <h1>Phonebook</h1>
-        <AddContact />
-        <h2>Contacts</h2>
-        <Filter />
-        {isLoading && <b>Loading tasks...</b>}
-        {error && <b>{error}</b>}
-
-        {items.length > 0 ? (
-          <ContactsList />
-        ) : (
-          <h3>You are absolutely alone</h3>
-        )}
-      </div>
+      <Container>
+        {' '}
+        <WrapperContacts>
+          <h2>Contacts</h2>
+          <Filter />
+          {isLoading && <Loader />}
+          {error && <b>{error}</b>}
+          {items.length > 0 ? (
+            <ContactsList />
+          ) : (
+            <TextStyled>You are absolutely alone </TextStyled>
+          )}
+        </WrapperContacts>
+        <WrapperContacts>
+          <h1>Phonebook</h1>
+          <AddContact />
+        </WrapperContacts>
+      </Container>
     </>
   );
 }

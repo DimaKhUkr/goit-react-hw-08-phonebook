@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAdContacts } from 'redux/option';
+import { Field, ContainerForm, BtnDisabled } from './AddContact.styled';
+import { toast } from 'react-hot-toast';
 
 export function AddContact() {
   const [name, setName] = useState('');
@@ -43,7 +45,7 @@ export function AddContact() {
     contacts.find(
       ({ name }) => name.toLowerCase() === newContact.name.toLowerCase()
     )
-      ? alert('Этот чувак уже есть в книге бро')
+      ? toast.error(`${name} is in your Contacts`)
       : dispatch(fetchAdContacts(newContact));
   };
 
@@ -53,33 +55,37 @@ export function AddContact() {
   };
 
   return (
-    <form onSubmit={handleSubmit} name="AddContact">
+    <ContainerForm onSubmit={handleSubmit}>
       <label>
         Name
-        <input
-          value={name}
-          onChange={handleChange}
+        <Field
           type="text"
           name="name"
+          value={name}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          placeholder="Enter name..."
+          onChange={handleChange}
         />
       </label>
       <label>
-        Number
-        <input
-          value={number}
-          onChange={handleChange}
+        Phone number
+        <Field
           type="tel"
           name="number"
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+          placeholder="Enter number..."
+          onChange={handleChange}
         />
       </label>
-      <button type="submit">Add Contact</button>
-    </form>
+      <BtnDisabled type="submit" disabled={!name || !number}>
+        Add contact
+      </BtnDisabled>
+    </ContainerForm>
   );
 }
 

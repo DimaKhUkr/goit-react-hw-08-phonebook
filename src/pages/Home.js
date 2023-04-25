@@ -1,26 +1,26 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import Weather from 'WeatherApp/WeatherApp';
+import { HomeTitle, WrapperHomePage, HomePage } from './HomePage.styled';
+import { useAuth } from 'redux/auth/selectors';
+import HomeBG from '../img/bg.jpeg';
 
 export default function Home() {
+  const { isLoggedIn } = useAuth();
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <HomePage style={{ backgroundImage: `url(${HomeBG})` }}>
+      <WrapperHomePage>
+        {isLoggedIn ? (
+          <HomeTitle>
+            Go to the contact tab to see the list of contacts
+          </HomeTitle>
+        ) : (
+          <HomeTitle>
+            To access the list of contacts, you must log in with your
+            credentials or register
+          </HomeTitle>
+        )}
+
+        <Weather />
+      </WrapperHomePage>
+    </HomePage>
   );
 }
