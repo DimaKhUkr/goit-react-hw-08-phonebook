@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { Button, TextField, Box, Container, Typography } from '@mui/material';
 import { useState } from 'react';
-
+import styled from 'styled-components';
+import LogBG from '../../img/bg-login.jpg';
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const initialState = {
@@ -36,73 +37,74 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Container component="div" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          backgroundColor: 'white',
-          padding: '20px',
-          boxShadow: ' rgb(33 33 33) 0px 2px 10px 1px',
-        }}
-      >
-        <Typography
-          variant="h4"
-          style={{ fontFamily: 'Caveat', fontWeight: '600' }}
+    <HomePage style={{ backgroundImage: `url(${LogBG})` }}>
+      <Container component="div" maxWidth="xs">
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            padding: '20px',
+            boxShadow: ' rgb(33 33 33) 0px 2px 10px 1px',
+          }}
         >
-          Sign Up
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="User name"
-            name="name"
-            autoComplete="name"
-            autoFocus
-            value={name}
-            variant="standard"
-            onChange={handleChange}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            type="email"
-            value={email}
-            variant="standard"
-            onChange={handleChange}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            value={password}
-            variant="standard"
-            onChange={handleChange}
-          />
-
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, color: '#0f1111', background: '#008296' }}
+          <Typography
+            variant="h4"
+            style={{ fontFamily: 'Fira Sans Condensed', fontWeight: '600' }}
           >
             Sign Up
-          </Button>
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="User name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+              value={name}
+              variant="standard"
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              type="email"
+              value={email}
+              variant="standard"
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              value={password}
+              variant="standard"
+              onChange={handleChange}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, color: '#0f1111', background: '#87CEFA	' }}
+            >
+              Sign Up
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </HomePage>
     // <form onSubmit={handleSubmit} autoComplete="off">
     //   <label>
     //     Username
@@ -120,3 +122,12 @@ export const RegisterForm = () => {
     // </form>
   );
 };
+const HomePage = styled.div`
+   {
+    background-size: cover;
+    overflow -x: hidden;
+    padding-top: 64px;
+    background-repeat: no-repeat;
+    height: calc(100vh - 70px);
+  }
+`;

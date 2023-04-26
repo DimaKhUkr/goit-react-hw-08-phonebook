@@ -8,12 +8,12 @@ export const WrapperMain = styled.main`
 
 export const WrapperHeader = styled.header`
   height: 70px;
-  background: linear-gradient(to top right, #66d0d0, #004747);
+  background: linear-gradient(to top right, #00bfff, #000080);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 70px;
   padding: 10px;
-  border-bottom: 2px solid rgb(181, 225, 232);
+  border-bottom: 2px solid #e0ffff;
   box-shadow: rgb(33 33 33) 0px 2px 10px 1px;
 `;

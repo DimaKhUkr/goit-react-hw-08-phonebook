@@ -35,7 +35,7 @@ const Field = styled.input`
   background-color: transparent;
   border-bottom: 1px solid white;
   outline: none;
-  color: white;
+  color: black;
   height: 20px;
   font-family: inherit;
   font-size: 18px;
@@ -45,7 +45,7 @@ const Field = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px #008296, 0 0 20px #008296, 0 0 30px #008296,
-      0 0 60px #008296;
+    box-shadow: #1e90ff 0px 0px 10px, #1e90ff 0px 0px 20px, #1e90ff 0px 0px 30px,
+      #1e90ff 0px 0px 60px;
   }
 `;

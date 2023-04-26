@@ -16,7 +16,7 @@ export const ContactEl = styled.li`
   align-items: center;
   padding-bottom: 10px;
 
-  & > span {
+  & > p {
     width: 30%;
     font-size: 16px;
     @media (min-width: 600px) {

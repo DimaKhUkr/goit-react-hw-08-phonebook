@@ -11,17 +11,12 @@ export const AuthNavStyled = styled(NavLink)`
   margin-right: 20px;
 
   &:hover {
-    color: #66d0d0;
-    border-bottom: 2px solid #66d0d0;
+    color: #87cefa;
+    border-bottom: 2px solid #87cefa;
   }
 
   &.active {
     color: white;
     border-bottom: 2px solid white;
-
-    &:hover {
-      color: #66d0d0;
-      border-bottom: 2px solid #66d0d0;
-    }
   }
 `;

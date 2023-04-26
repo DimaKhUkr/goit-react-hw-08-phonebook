@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './operations';
+import { toast } from 'react-hot-toast';
 
 const initialState = {
   user: { name: null, email: null },
@@ -22,6 +23,9 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+      })
+      .addCase(logIn.rejected, (state, action) => {
+        toast.error(`Invalid registration data`);
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };

@@ -16,19 +16,19 @@ export const Field = styled.input`
   background-color: transparent;
   border-bottom: 1px solid white;
   outline: none;
-  color: white;
+  color: black;
   height: 20px;
   font-family: inherit;
   font-size: 18px;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.56);
+    color: rgba(255, 255, 255, 0.5);
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px #00b2b2, 0 0 20px #008296, 0 0 30px #00b2b2,
-      0 0 60px #008296;
+    box-shadow: #1e90ff 0px 0px 10px, #1e90ff 0px 0px 20px, #1e90ff 0px 0px 30px,
+      #1e90ff 0px 0px 60px;
   }
 `;
 
@@ -42,10 +42,10 @@ export const BtnDisabled = styled.button`
 
   &:hover {
     color: ${props => (props.disabled ? `#7c7a7a` : `  white`)};
-    background-color: ${props => (props.disabled ? `#afaaaa` : `#008296`)};
+    background-color: ${props => (props.disabled ? `#afaaaa` : `#0000cd`)};
     box-shadow: ${props =>
       props.disabled
         ? `none`
-        : `0 0 10px #008296, 0 0 20px #00b2b2, 0 0 40px #008296`};
+        : `0 0 10px #0000cd, 0 0 20px #1e90ff, 0 0 40px #0000cd`};
   }
 `;

@@ -16,7 +16,7 @@ export const ContactsList = () => {
       {visibleContacts.map(({ id, name, number }) => {
         return (
           <ContactEl key={id}>
-            <p>{name}:</p>
+            <p>-{name}:</p>
             <p>{number}</p>
             <ContactBtn
               onClick={() => dispatch(fetchDelContacts(id))}
