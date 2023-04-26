@@ -27,6 +27,7 @@ const AddContactsSlice = createSlice({
       state.items = state.items.filter(
         contact => contact.id !== action.payload.id
       );
+      state.error = null;
     },
     [fetchDelContacts.rejected](state, action) {
       state.error = action.payload;
@@ -35,6 +36,7 @@ const AddContactsSlice = createSlice({
     [fetchAdContacts.fulfilled](state, action) {
       // console.log(action.payload);
       state.items.push(action.payload);
+      state.error = null;
     },
     [fetchAdContacts.rejected](state, action) {
       state.error = action.payload;

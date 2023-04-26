@@ -13,6 +13,7 @@ import {
 } from './Contacts.styled';
 import { Loader } from 'components/Loader/Loader';
 import ContBG from '../img/bg-contacts.jpg';
+import { toast } from 'react-hot-toast';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ export default function Contacts() {
             <h2>Contacts</h2>
             <Filter />
             {isLoading && <Loader />}
+            {error &&
+              toast.error(`There was a terrible mistake, drop everything and run out of the country
+`)}
             {items.length > 0 ? (
               <ContactsList />
             ) : (
