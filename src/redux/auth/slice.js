@@ -19,6 +19,11 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(register.rejected, (state, action) => {
+        toast.error(
+          `Invalid registration data: You should enter a more secure password or another email`
+        );
+      })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
